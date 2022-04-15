@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #181515;
+}
+
+#app {
+  background-color: #251d1d;
+  color: #5c4646;
+  font-family: "Ubuntu";
+}
+
+header {
+  font-size: 37px;
+  text-align: center;
+}
+header h1 {
+  font-weight: normal;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 24px;
+  color: #327730;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+}
+main #gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+}
+main #gallery #movies {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+main #gallery #movies .movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 4%;
+  padding: 1%;
+  width: 33%;
+}
+main #gallery #movies .movie * {
+  padding: 1%;
+}
+main #gallery #movies .movie img {
+  width: 100%;
+}
+
+form {
+  display: none;
+  flex-direction: column;
+  font-size: 20px;
+  text-align: center;
+}
+form * {
+  margin: 1vw;
+}
+form input,
+form textarea {
+  background-color: #5c4646;
+  color: #181515;
+  align-self: center;
+}
+form input {
+  width: 70%;
+  height: 4vh;
+}
+
+button {
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #5c4646;
+  width: 40%;
+  align-self: center;
+}
+
+/*# sourceMappingURL=style.css.map */

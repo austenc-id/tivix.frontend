@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+$mocha: #251d1d;
+$espresso: #181515;
+$froth: #5c4646;
+$forest: #327730;
+$lava: #a73729;
+$ocean: #2a5e8f;
+$wave: #4e7fad;
+$ubuntu: "Ubuntu";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $espresso;
+}
+
+#app {
+    background-color: $mocha;
+    color: $froth;
+    font-family: $ubuntu;
+}
+
+header {
+    font-size: 37px;
+    text-align: center;
+
+    h1 {
+        font-weight: normal;
+    }
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 24px;
+    color: $forest;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
+
+    #gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1%;
+
+
+
+        #movies {
+            display: flex;
+            justify-content: center;
+            padding: 1%;
+
+            .movie {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 4%;
+                padding: 1%;
+                width: 33%;
+
+                * {
+                    padding: 1%;
+
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+
+}
+
+form {
+    display: none;
+    flex-direction: column;
+    font-size: 20px;
+    text-align: center;
+
+    * {
+        margin: 1vw;
+    }
+
+    input,
+    textarea {
+        background-color: $froth;
+        color: $espresso;
+        align-self: center;
+    }
+
+    input {
+        width: 70%;
+        height: 4vh;
+    }
+}
+
+button {
+    background-color: inherit;
+    color: inherit;
+    border: 1px solid $froth;
+    width: 40%;
+    align-self: center;
+}

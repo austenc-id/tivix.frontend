@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Gallery</title>
+    <link rel="stylesheet" href="./app/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <template v-if="loadTime <= 0">
+            <header>
+                <h1>--title--</h1>
+            </header>
+            <nav>
+                <span v-for="gallery in galleries" @click="renderGallery(gallery)">--gallery.title--</span>
+                <span @click="toggleForm()">new gallery</span>
+                <span>search</span>
+            </nav>
+            <main>
+                <div id="gallery" v-if="activeGallery">
+                    <h2>--activeGallery.title--</h2>
+                    <p>--activeGallery.description--</p>
+                    <div id="movies">
+                        <section v-for="movie in activeGallery.productions" class="movie">
+                            <h3>--movie.title--</h3>
+                            <span>--movie.year--</span>
+                            <img  :src="movie.poster" :alt="movie.title + 'poster'">
+                        </section>
+                        <section class="movie">
+                            <h3>add a movie</h3>
+                            <img src="" alt="">
+                        </section>
+
+                    </div>
+                </div>
+                <form id="galleryForm"
+                onsubmit="event.preventDefault()">
+                    <h1>New Gallery</h1>
+                    <label for="newGalleryTitle">Gallery Title:</label>
+                    <input type="text" id="newGalleryTitle">
+                    <label for="newGalleryDescription">Description</label>
+                    <textarea name="" id="newGalleryDescription" cols="30" rows="4"></textarea>
+                    <button @click="submitForm()">submit</button>
+                </form>
+            </main>
+        </template>
+    </div>
+</body>
+<script src="https://unpkg.com/vue@latest"></script>
+<script type="module" src="./app/app.js"></script>
+
+</html>
