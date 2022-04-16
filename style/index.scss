@@ -12,7 +12,9 @@ $ubuntu: "Ubuntu";
     margin: 0;
     padding: 0;
 }
-
+.hidden {
+    display: none !important;
+}
 body {
     background-color: $espresso;
     height: fit-content;
@@ -131,6 +133,7 @@ body {
                 background-color: $froth;
                 color: $espresso;
                 align-self: center;
+                margin: 1vw;
             }
 
             input {

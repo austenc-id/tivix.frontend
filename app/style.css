@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
   background-color: #181515;
   height: fit-content;
@@ -116,6 +120,7 @@ body #app form textarea {
   background-color: #5c4646;
   color: #181515;
   align-self: center;
+  margin: 1vw;
 }
 body #app form input {
   width: 70%;

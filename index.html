@@ -19,7 +19,7 @@
             <nav>
                 <h4 @click="toggleGalleryNav()" class="link">galleries</h4>
                 <h4 @click="toggleForm('galleryForm')" class="link">new gallery</h4>
-                <h4 class="link">search</h4>
+                <h4 @click="toggleForm('searchForm')" class="link">search</h4>
             </nav>
             <nav id="galleryNav">
                 <h4 v-for="gallery in galleries" @click="renderGallery(gallery)" class="link">--gallery.title--</h4>
@@ -29,7 +29,7 @@
                     <h2>--activeGallery.title--</h2>
                     <p>--activeGallery.description--</p>
                     <div id="movies">
-                        <section class="movie">
+                        <section class="movie" v-if="!searched">
                             <div id="displayGalleryControls">
                                 <svg id="hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="link" @click="toggleGalleryControls('galleryControls')">
                                     <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
@@ -56,7 +56,10 @@
                         <section v-for="movie in activeGallery.productions" class="movie">
                             <h3>--movie.title--</h3>
                             <span>--movie.year--</span>
-                            <img :src="movie.poster" :alt="movie.title + '-poster'">
+                            <img v-if="movie.poster != 'N/A'" :src="movie.poster" :alt="movie.title + '-poster'">
+                            <button v-if="searched" @click="saveToGallery(movie)">add to gallery</button>
+
+                            </div>
                         </section>
 
                     </div>
@@ -70,10 +73,16 @@
                     <button @click="submitGalleryForm()">submit</button>
                 </form>
                 <form id="addMovieForm" class="" onsubmit="event.preventDefault()">
-                    <h1>Add Movie to --activeGallery.title--</h1>
+                    <h3>Add Movie to --activeGallery.title--</h3>
                     <label for="newMovieTitle">Title:</label>
                     <input type="text" id="newMovieTitle">
                     <button @click="submitMovieForm(activeGallery)">submit</button>
+                </form>
+                <form id="searchForm" class="" onsubmit="event.preventDefault()">
+                    <h1>search</h1>
+                    <label for="query">Movie Title:</label>
+                    <input type="text" id="query">
+                    <button @click="submitSearchForm()">submit</button>
                 </form>
                 <form id="removeMovieForm" class="" onsubmit="event.preventDefault()">
                     <h1>Remove Movie from --activeGallery.title--</h1>

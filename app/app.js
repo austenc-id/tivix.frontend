@@ -9,6 +9,7 @@ Vue.createApp({
             galleries: [],
             formActive: false,
             activeGallery: false,
+            searched: false,
             allMovies: [],
 
         }
@@ -30,6 +31,7 @@ Vue.createApp({
         },
         checkGalleries(data){
             let valid = []
+            data=data.results
             data.forEach(gallery => {
                 if (gallery.title != ''){
                     valid.push(gallery)
@@ -51,8 +53,8 @@ Vue.createApp({
             })
             return galleries
         },
-        async fetchMovie(movie) {
-            let details = await fetch(`${movie}details`)
+        async fetchMovie(title) {
+            let details = await fetch(`${title}details`)
                 .then(response => response.json())
                 .catch(error => console.log(error))
             return details
@@ -80,10 +82,13 @@ Vue.createApp({
                 document.getElementById(form).classList.toggle('hidden');
             }
         },
-        renderGallery(gallery) {
+        renderGallery(gallery, searched) {
             this.renderApp();
             this.sleep(.01)
                 .then(execute)
+            if (!searched){
+                this.searched = false
+            }
             this.activeGallery = gallery;
             this.activeGallery.productions.sort(this.compareYears)
             function execute() {
@@ -106,6 +111,7 @@ Vue.createApp({
         },
         async submitMovieForm(gallery) {
             let title = document.getElementById('newMovieTitle').value
+            title.replace('and', '&')
             await fetch(`${this.baseUrl}/movies/${title}/query`)
                 .then(response => response.json())
                 // .then(response => console.log(response))
@@ -161,6 +167,7 @@ Vue.createApp({
             forms[0].classList.add('hidden')
             forms[1].classList.add('hidden')
             forms[2].classList.add('hidden')
+            forms[3].classList.add('hidden')
             // ! just refuses to call the loop. no errors. nothing. ????
             for (let i = 0; i > forms.length; i++) {
                 let element = forms[i]
@@ -186,6 +193,75 @@ Vue.createApp({
         sleep(sec) {
             let ms = sec * 1000
             return new Promise(resolve => setTimeout(resolve, ms));
-        }
+        },
+        async submitSearchForm(){
+            let query = document.getElementById('query').value
+            let url = this.baseUrl.replace('api', 'search/movies/') + query
+            let resultsGallery = {
+                id: 0,
+                title: 'Search Results',
+                description: '',
+                productions: []
+            }
+            let gallery = await fetch(url)
+                .then(response => response.json())
+                .then(data => this.fetchResults(data.results))
+                .then(data => {
+                    data.content.forEach(result => {
+                        result = {
+                            title: result.Title,
+                            year: result.Year,
+                            poster: result.Poster
+                        }
+                        resultsGallery.productions.push(result)
+                    })
+                    this.renderGallery(resultsGallery, true)
+                    this.searched = true
+
+                })
+
+        },
+        async fetchResults(id){
+            let url = this.baseUrl + '/searches/' + id
+            let gallery = await fetch(url)
+                .then(response => response.json())
+            return gallery
+        },
+        async saveToGallery(movie){
+            console.log(movie)
+            let galleries = []
+            let count = 1
+            this.galleries.forEach(gallery => {
+                galleries.push(`\n${count}: ${gallery.title}`)
+                count++
+            })
+            let entry = prompt(`add ${movie.title} to which gallery ${galleries}. \nPlease enter the number.`)
+            let gallery = this.galleries[entry - 1]
+            await fetch(`${this.baseUrl}/movies/${movie.title}/query`)
+                .then(response => response.json())
+                .then(data => data.id)
+                .then(id => {
+                    fetch(gallery.url, {
+                        method: 'PATCH',
+                        body: JSON.stringify({
+                            productions: [id]
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    })
+                    .then(response => console.log(response))
+                    .then(response => confirm('all done? or continue adding movies?'))
+                    .then(finished => {
+                        if (finished){
+                            window.location.reload()
+                        }
+                    })
+                })
+
+
+
+        },
+
     }
 }).mount('#app')
