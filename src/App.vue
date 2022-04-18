@@ -39,8 +39,8 @@ export default {
       galleriesActive: false,
       searchActive: false,
       urls: {
-        galleries: 'http://127.0.0.1:8000/api/galleries',
-        search: 'http://127.0.0.1:8000/search',
+        galleries: 'https://acmf-tivix.herokuapp.com/api/galleries',
+        search: 'https://acmf-tivix.herokuapp.com/search',
       },
       galleries: false,
     }

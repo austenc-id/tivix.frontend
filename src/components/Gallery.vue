@@ -36,7 +36,7 @@ export default {
     },
     data() {
         return {
-            url: 'http://127.0.0.1:8000/api/productions',
+            url: 'https://acmf-tivix.herokuapp.com/api/productions',
             showModal: false,
             modalMovie: {},
         }
