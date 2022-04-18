@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+$mocha: #251d1d;
+$espresso: #181515;
+$froth: #5c4646;
+$forest: #327730;
+$lava: #a73729;
+$ocean: #2a5e8f;
+$wave: #4e7fad;
+$ubuntu: "Ubuntu";
+
+* {
+    border-radius: 5px;
+    font-size: 100%;
+    font-weight: normal;
+}
+body {
+    background-color: $espresso;
+}
+#app {
+    background-color: $mocha;
+    color: $froth;
+    font-family: $ubuntu;
+}
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 37px;
+}
+h3 {
+    font-size: 28px;
+}
+h4 {
+    font-size: 20px;
+}
+h5 {
+    font-size: 18px;
+}
+.link {
+    padding: 2vw;
+    cursor: pointer;
+    color: $forest;
+}
+form {
+    border: 1px solid;
+    font-size: 20px;
+}
+input,
+button {
+    background-color: $espresso;
+    color: inherit;
+    border: none;
+}
+button {
+    border: 1px solid;
+}
+.card {
+    cursor: pointer;
+    background-color: $espresso;
+}
+.modal-container {
+    background-color: $espresso;
+    color: $froth;
+    font-family: 'Ubuntu';
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+    h4 {
+        font-size: 32px;
+    }
+    h5 {
+        font-size: 24px;
+    }
+}

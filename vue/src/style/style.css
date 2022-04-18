@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+* {
+  border-radius: 5px;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+body {
+  background-color: #181515;
+}
+
+#app {
+  background-color: #251d1d;
+  color: #5c4646;
+  font-family: "Ubuntu";
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 37px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+.link {
+  padding: 2vw;
+  cursor: pointer;
+  color: #327730;
+}
+
+form {
+  border: 1px solid;
+  font-size: 20px;
+}
+
+input,
+button {
+  background-color: #181515;
+  color: inherit;
+  border: none;
+}
+
+button {
+  border: 1px solid;
+}
+
+.card {
+  cursor: pointer;
+  background-color: #181515;
+}
+
+.modal-container {
+  background-color: #181515;
+  color: #5c4646;
+  font-family: "Ubuntu";
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+}
+.modal-container h4 {
+  font-size: 32px;
+}
+.modal-container h5 {
+  font-size: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  margin: 5% 0;
+}
+
+header {
+  padding: 2vw;
+}
+
+form {
+  padding: 2vw;
+  margin: 1vw;
+}
+
+input, button {
+  padding: 1%;
+}
+
+.card {
+  margin: 5%;
+  padding: 3%;
+}
+
+body {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#app {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  font-size: 28px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+main div {
+  width: 80%;
+}
+main div form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+main div form input {
+  width: 50%;
+}
+main #gallery-content {
+  width: 100%;
+  display: flex;
+}
+main #gallery-content nav {
+  flex-direction: column;
+  width: 30%;
+  text-align: end;
+  justify-content: start;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+.gallery section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.gallery section .card {
+  width: 33%;
+  max-width: 150px;
+  height: fit-content;
+  border: 1px solid;
+}
+.gallery section .card h4,
+.gallery section .card h5,
+.gallery section .card img {
+  width: 100%;
+}
+.gallery section .detailed {
+  width: 100%;
+  max-width: 33%;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.trunc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 90vh;
+  margin: 0px auto;
+  padding: 20px 30px;
+  transition: all 0.3s ease;
+}
+.modal-container h4,
+.modal-container h5 {
+  text-align: center;
+}
+.modal-container .modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+.modal-container .modal-body img {
+  width: 90%;
+}
+.modal-container .modal-default-button {
+  float: right;
+  cursor: pointer;
+  border: none;
+}
+.modal-container .modal-default-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+/* .modal-enter-from {
+    opacity: 0;
+  }
+
+  .modal-leave-to {
+    opacity: 0;
+  } */
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=style.css.map */
