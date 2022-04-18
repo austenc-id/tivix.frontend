@@ -75,7 +75,7 @@ export default {
           })
             return this.galleries
         })
-        .then(galleries => console.log(galleries))
+        // .then(galleries => console.log(galleries))
         // .then(galleries => (this.galleries = galleries))
 
     },

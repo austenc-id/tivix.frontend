@@ -23,7 +23,7 @@ export default {
                     <div class="modal-header">
                         <slot name="header">
 
-                            <h4>{{ movie.card.title }}</h4>
+                            <h4 class="trunc">{{ movie.card.title }}</h4>
                             <h5>{{ movie.card.year }}</h5>
                         </slot>
                     </div>

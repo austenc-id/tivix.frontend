@@ -19,8 +19,8 @@ export default {
         galleries: Object,
     },
     created() {
-        console.log('created  Galleries')
-        console.log(this.galleries)
+        // console.log('created  Galleries')
+        // console.log(this.galleries)
     },
     mounted() {
         // console.log('mounted Galleries')

@@ -43,7 +43,7 @@ export default {
                         movies: response.movies
                     }
                     this.activeGallery = gallery
-                    console.log(this.activeGallery)
+                    // console.log(this.activeGallery)
 
                 })
         }
